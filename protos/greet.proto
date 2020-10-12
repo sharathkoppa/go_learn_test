@@ -13,5 +13,5 @@ message greetingResponse{
 }
 
 service greetService{
-    rpc Greet(greetingRequest) returns (greetingResponse) {};
+    rpc Greet(greetingRequest) returns (greetingResponse) {}
 }
