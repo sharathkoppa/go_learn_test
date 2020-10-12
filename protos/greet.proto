@@ -3,4 +3,15 @@ syntax = "proto3";
 package protos;
 option go_package="go_learn_test/protos";
 
-service greetService{}
+message greetingRequest{
+    string first_name = 1;
+    string last_name = 2;
+}
+
+message greetingResponse{
+    string response = 1;
+}
+
+service greetService{
+    rpc Greet(greetingRequest) returns (greetingResponse) {};
+}
