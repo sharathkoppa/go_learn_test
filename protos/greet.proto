@@ -29,6 +29,13 @@ message primeDecompostionResponse {
     int32 Response = 1;
 }
 
+message maxNumberRequest {
+    int32 Number = 1;
+}
+
+message maxNumberResponse {
+    int32 Response = 1;
+}
 
 service greetService{
     rpc Greet(greetingRequest) returns (greetingResponse) {}
@@ -37,5 +44,6 @@ service greetService{
     rpc PrimeCheck(primeDecompostionRequest) returns (stream primeDecompostionResponse) {}
     rpc LongGreet(stream greetingRequest) returns (greetingResponse) {}
     rpc GreetEveryOne(stream greetingRequest) returns (stream greetingResponse) {}
+    rpc MaxNumber(stream maxNumberRequest) returns (stream maxNumberResponse) {}
 
 }

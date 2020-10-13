@@ -99,6 +99,27 @@ func (s *server) GreetEveryOne(stream protos.GreetService_GreetEveryOneServer) e
 
 }
 
+func (s *server) MaxNumber(stream protos.GreetService_MaxNumberServer) error {
+	fmt.Println("stream greet max number server")
+	maxNumber := int32(0)
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		} else if err != nil {
+			fmt.Println("error while receiving stream for max number", err.Error())
+			return nil
+		}
+		number := req.GetNumber()
+		fmt.Println(number, maxNumber)
+		if number > maxNumber {
+			maxNumber = number
+			stream.Send(&protos.MaxNumberResponse{Response: number})
+		}
+
+	}
+}
+
 func main() {
 	lsi, err := net.Listen("tcp", "0.0.0.0:1234")
 	if err != nil {

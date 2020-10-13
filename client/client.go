@@ -26,6 +26,7 @@ func main() {
 	PrimeDecomposition(c)
 	LongGreetClientStream(c)
 	GreetBiDiStream(c)
+	GetMaxNumber(c)
 
 }
 
@@ -167,4 +168,32 @@ func GreetBiDiStream(c protos.GreetServiceClient) {
 		respJson, _ := json.Marshal(resp)
 		fmt.Println("resp:", string(respJson))
 	}
+}
+
+func GetMaxNumber(c protos.GreetServiceClient) {
+	numbers := []int32{2, 4, 7, 3, 5, 19, 35}
+
+	ctx := context.Background()
+	stream, err := c.MaxNumber(ctx)
+	if err != nil {
+		fmt.Println("grpc rpc error for max number ", err)
+	}
+
+	for _, n := range numbers {
+		stream.Send(&protos.MaxNumberRequest{Number:n})
+		fmt.Println("number sent :", n)
+		time.Sleep(1 * time.Second)
+	}
+	stream.CloseSend()
+
+	for {
+		resp, err := stream.Recv()
+		if err == io.EOF {
+			break
+		} else if err != nil {
+			fmt.Println("error in stream max number", err)
+		}
+		fmt.Println("max number is :", resp.Response)
+	}
+
 }
