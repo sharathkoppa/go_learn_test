@@ -24,7 +24,8 @@ func main() {
 	ArithmeticUnary(c)
 	GreetStreamServer(c)
 	PrimeDecomposition(c)
-	LongGreet(c)
+	LongGreetClientStream(c)
+	GreetBiDiStream(c)
 
 }
 
@@ -101,7 +102,7 @@ func PrimeDecomposition(c protos.GreetServiceClient) {
 
 }
 
-func LongGreet(c protos.GreetServiceClient) {
+func LongGreetClientStream(c protos.GreetServiceClient) {
 	ctx := context.Background()
 	var request []*protos.GreetingRequest
 	lst := [][]string{{"Sharath", "Koppa"}, {"Sowmya", "Bhat"}, {"Chidu", "Koppa"}, {"Asha", "Devi"}}
@@ -130,4 +131,40 @@ func LongGreet(c protos.GreetServiceClient) {
 	}
 	respJson, _ := json.Marshal(resp)
 	fmt.Println("resp:", string(respJson))
+}
+
+
+func GreetBiDiStream(c protos.GreetServiceClient) {
+	var request []*protos.GreetingRequest
+	lst := [][]string{{"Sharath", "Koppa"}, {"Sowmya", "Bhat"}, {"Chidu", "Koppa"}, {"Asha", "Devi"}}
+	for _, ls := range lst {
+		request = append(request, &protos.GreetingRequest{
+			FirstName: ls[0],
+			LastName:  ls[1],
+		})
+	}
+
+	ctx := context.Background()
+	stream, err := c.GreetEveryOne(ctx)
+	if err != nil {
+		fmt.Println("grpc rpc error for bidi greet ", err)
+	}
+
+	for _, req := range request {
+		fmt.Println("sending client stream", req)
+		stream.Send(req)
+		time.Sleep(1 * time.Second)
+	}
+	stream.CloseSend()
+
+	for {
+		resp, err := stream.Recv()
+		if err == io.EOF {
+			break
+		} else if err != nil {
+			fmt.Println("error in stream bidi", err)
+		}
+		respJson, _ := json.Marshal(resp)
+		fmt.Println("resp:", string(respJson))
+	}
 }

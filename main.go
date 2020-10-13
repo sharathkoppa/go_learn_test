@@ -62,7 +62,7 @@ func (s *server) PrimeCheck(req *protos.PrimeDecompostionRequest, stream protos.
 }
 
 func (s *server) LongGreet(stream protos.GreetService_LongGreetServer) error {
-	fmt.Println("stream greet client")
+	fmt.Println("stream greet server")
 	resp := &protos.GreetingResponse{}
 	str := ""
 	for {
@@ -75,11 +75,29 @@ func (s *server) LongGreet(stream protos.GreetService_LongGreetServer) error {
 			return stream.SendAndClose(resp)
 		}
 		str += "hello " + req.FirstName + " " + req.LastName + "\n"
-		fmt.Println(str)
 	}
 
 }
 
+func (s *server) GreetEveryOne(stream protos.GreetService_GreetEveryOneServer) error {
+	fmt.Println("stream greet many server")
+
+	str := ""
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		} else if err != nil {
+			fmt.Println("error while receiving stream from client", err.Error())
+			return nil
+		}
+
+		str = "hello " + req.FirstName + " " + req.LastName
+		resp := &protos.GreetingResponse{Response: str}
+		stream.Send(resp)
+	}
+
+}
 
 func main() {
 	lsi, err := net.Listen("tcp", "0.0.0.0:1234")

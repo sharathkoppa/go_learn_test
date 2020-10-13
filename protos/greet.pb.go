@@ -355,7 +355,7 @@ var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
 	0x0a, 0x19, 0x70, 0x72, 0x69, 0x6d, 0x65, 0x44, 0x65, 0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74,
 	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xe2, 0x02, 0x0a, 0x0c, 0x67, 0x72, 0x65, 0x65,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xac, 0x03, 0x0a, 0x0c, 0x67, 0x72, 0x65, 0x65,
 	0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x05, 0x47, 0x72, 0x65, 0x65,
 	0x74, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74,
 	0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x6f,
@@ -377,9 +377,14 @@ var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
 	0x47, 0x72, 0x65, 0x65, 0x74, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67,
 	0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x42, 0x16, 0x5a, 0x14,
-	0x67, 0x6f, 0x5f, 0x6c, 0x65, 0x61, 0x72, 0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x12, 0x48, 0x0a, 0x0d,
+	0x47, 0x72, 0x65, 0x65, 0x74, 0x45, 0x76, 0x65, 0x72, 0x79, 0x4f, 0x6e, 0x65, 0x12, 0x17, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e,
+	0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x28, 0x01, 0x30, 0x01, 0x42, 0x16, 0x5a, 0x14, 0x67, 0x6f, 0x5f, 0x6c, 0x65, 0x61,
+	0x72, 0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x62, 0x06,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -409,13 +414,15 @@ var file_go_learn_test_protos_greet_proto_depIdxs = []int32{
 	0, // 2: protos.greetService.GreetManyTimes:input_type -> protos.greetingRequest
 	4, // 3: protos.greetService.PrimeCheck:input_type -> protos.primeDecompostionRequest
 	0, // 4: protos.greetService.LongGreet:input_type -> protos.greetingRequest
-	1, // 5: protos.greetService.Greet:output_type -> protos.greetingResponse
-	3, // 6: protos.greetService.Sum:output_type -> protos.sumResponse
-	1, // 7: protos.greetService.GreetManyTimes:output_type -> protos.greetingResponse
-	5, // 8: protos.greetService.PrimeCheck:output_type -> protos.primeDecompostionResponse
-	1, // 9: protos.greetService.LongGreet:output_type -> protos.greetingResponse
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
+	0, // 5: protos.greetService.GreetEveryOne:input_type -> protos.greetingRequest
+	1, // 6: protos.greetService.Greet:output_type -> protos.greetingResponse
+	3, // 7: protos.greetService.Sum:output_type -> protos.sumResponse
+	1, // 8: protos.greetService.GreetManyTimes:output_type -> protos.greetingResponse
+	5, // 9: protos.greetService.PrimeCheck:output_type -> protos.primeDecompostionResponse
+	1, // 10: protos.greetService.LongGreet:output_type -> protos.greetingResponse
+	1, // 11: protos.greetService.GreetEveryOne:output_type -> protos.greetingResponse
+	6, // [6:12] is the sub-list for method output_type
+	0, // [0:6] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -537,6 +544,7 @@ type GreetServiceClient interface {
 	GreetManyTimes(ctx context.Context, in *GreetingRequest, opts ...grpc.CallOption) (GreetService_GreetManyTimesClient, error)
 	PrimeCheck(ctx context.Context, in *PrimeDecompostionRequest, opts ...grpc.CallOption) (GreetService_PrimeCheckClient, error)
 	LongGreet(ctx context.Context, opts ...grpc.CallOption) (GreetService_LongGreetClient, error)
+	GreetEveryOne(ctx context.Context, opts ...grpc.CallOption) (GreetService_GreetEveryOneClient, error)
 }
 
 type greetServiceClient struct {
@@ -663,6 +671,37 @@ func (x *greetServiceLongGreetClient) CloseAndRecv() (*GreetingResponse, error) 
 	return m, nil
 }
 
+func (c *greetServiceClient) GreetEveryOne(ctx context.Context, opts ...grpc.CallOption) (GreetService_GreetEveryOneClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_GreetService_serviceDesc.Streams[3], "/protos.greetService/GreetEveryOne", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &greetServiceGreetEveryOneClient{stream}
+	return x, nil
+}
+
+type GreetService_GreetEveryOneClient interface {
+	Send(*GreetingRequest) error
+	Recv() (*GreetingResponse, error)
+	grpc.ClientStream
+}
+
+type greetServiceGreetEveryOneClient struct {
+	grpc.ClientStream
+}
+
+func (x *greetServiceGreetEveryOneClient) Send(m *GreetingRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *greetServiceGreetEveryOneClient) Recv() (*GreetingResponse, error) {
+	m := new(GreetingResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // GreetServiceServer is the server API for GreetService service.
 type GreetServiceServer interface {
 	Greet(context.Context, *GreetingRequest) (*GreetingResponse, error)
@@ -670,6 +709,7 @@ type GreetServiceServer interface {
 	GreetManyTimes(*GreetingRequest, GreetService_GreetManyTimesServer) error
 	PrimeCheck(*PrimeDecompostionRequest, GreetService_PrimeCheckServer) error
 	LongGreet(GreetService_LongGreetServer) error
+	GreetEveryOne(GreetService_GreetEveryOneServer) error
 }
 
 // UnimplementedGreetServiceServer can be embedded to have forward compatible implementations.
@@ -690,6 +730,9 @@ func (*UnimplementedGreetServiceServer) PrimeCheck(*PrimeDecompostionRequest, Gr
 }
 func (*UnimplementedGreetServiceServer) LongGreet(GreetService_LongGreetServer) error {
 	return status.Errorf(codes.Unimplemented, "method LongGreet not implemented")
+}
+func (*UnimplementedGreetServiceServer) GreetEveryOne(GreetService_GreetEveryOneServer) error {
+	return status.Errorf(codes.Unimplemented, "method GreetEveryOne not implemented")
 }
 
 func RegisterGreetServiceServer(s *grpc.Server, srv GreetServiceServer) {
@@ -800,6 +843,32 @@ func (x *greetServiceLongGreetServer) Recv() (*GreetingRequest, error) {
 	return m, nil
 }
 
+func _GreetService_GreetEveryOne_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(GreetServiceServer).GreetEveryOne(&greetServiceGreetEveryOneServer{stream})
+}
+
+type GreetService_GreetEveryOneServer interface {
+	Send(*GreetingResponse) error
+	Recv() (*GreetingRequest, error)
+	grpc.ServerStream
+}
+
+type greetServiceGreetEveryOneServer struct {
+	grpc.ServerStream
+}
+
+func (x *greetServiceGreetEveryOneServer) Send(m *GreetingResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *greetServiceGreetEveryOneServer) Recv() (*GreetingRequest, error) {
+	m := new(GreetingRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _GreetService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "protos.greetService",
 	HandlerType: (*GreetServiceServer)(nil),
@@ -827,6 +896,12 @@ var _GreetService_serviceDesc = grpc.ServiceDesc{
 		{
 			StreamName:    "LongGreet",
 			Handler:       _GreetService_LongGreet_Handler,
+			ClientStreams: true,
+		},
+		{
+			StreamName:    "GreetEveryOne",
+			Handler:       _GreetService_GreetEveryOne_Handler,
+			ServerStreams: true,
 			ClientStreams: true,
 		},
 	},

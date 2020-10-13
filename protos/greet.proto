@@ -36,5 +36,6 @@ service greetService{
     rpc GreetManyTimes(greetingRequest) returns (stream greetingResponse) {}
     rpc PrimeCheck(primeDecompostionRequest) returns (stream primeDecompostionResponse) {}
     rpc LongGreet(stream greetingRequest) returns (greetingResponse) {}
+    rpc GreetEveryOne(stream greetingRequest) returns (stream greetingResponse) {}
 
 }
