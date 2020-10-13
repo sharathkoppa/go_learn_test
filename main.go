@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"net"
 	"os"
 	"time"
@@ -42,6 +43,7 @@ func (s *server) GreetManyTimes(req *protos.GreetingRequest, stream protos.Greet
 }
 
 func (s *server) PrimeCheck(req *protos.PrimeDecompostionRequest, stream protos.GreetService_PrimeCheckServer) error {
+	fmt.Println("stream prime server")
 	number := req.Number
 	k := int32(2)
 	for number > 1 {
@@ -58,6 +60,27 @@ func (s *server) PrimeCheck(req *protos.PrimeDecompostionRequest, stream protos.
 
 	return nil
 }
+
+func (s *server) LongGreet(stream protos.GreetService_LongGreetServer) error {
+	fmt.Println("stream greet client")
+	resp := &protos.GreetingResponse{}
+	str := ""
+	for {
+		req, err := stream.Recv()
+		if err == io.EOF {
+			resp.Response = str
+			return stream.SendAndClose(resp)
+		} else if err != nil {
+			fmt.Println("error while receiving stream from client", err.Error())
+			return stream.SendAndClose(resp)
+		}
+		str += "hello " + req.FirstName + " " + req.LastName + "\n"
+		fmt.Println(str)
+	}
+
+}
+
+
 func main() {
 	lsi, err := net.Listen("tcp", "0.0.0.0:1234")
 	if err != nil {

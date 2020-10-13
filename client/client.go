@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"time"
 
 	"github.com/sharathkoppa/go_learn_test/protos"
 	"google.golang.org/grpc"
@@ -23,6 +24,7 @@ func main() {
 	ArithmeticUnary(c)
 	GreetStreamServer(c)
 	PrimeDecomposition(c)
+	LongGreet(c)
 
 }
 
@@ -97,4 +99,35 @@ func PrimeDecomposition(c protos.GreetServiceClient) {
 		fmt.Println(string(respJson))
 	}
 
+}
+
+func LongGreet(c protos.GreetServiceClient) {
+	ctx := context.Background()
+	var request []*protos.GreetingRequest
+	lst := [][]string{{"Sharath", "Koppa"}, {"Sowmya", "Bhat"}, {"Chidu", "Koppa"}, {"Asha", "Devi"}}
+	for _, ls := range lst {
+		request = append(request, &protos.GreetingRequest{
+			FirstName: ls[0],
+			LastName:  ls[1],
+		})
+	}
+
+	stream, err := c.LongGreet(ctx)
+	if err != nil {
+		fmt.Println("grpc rpc error for long greet ", err)
+	}
+
+	for _, req := range request {
+		fmt.Println("sending client stream", req)
+		stream.Send(req)
+		time.Sleep(1 * time.Second)
+	}
+
+	resp , err := stream.CloseAndRecv()
+
+	if err != nil {
+		fmt.Println("grpc response error for long greet ", err)
+	}
+	respJson, _ := json.Marshal(resp)
+	fmt.Println("resp:", string(respJson))
 }

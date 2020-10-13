@@ -29,10 +29,12 @@ message primeDecompostionResponse {
     int32 Response = 1;
 }
 
+
 service greetService{
     rpc Greet(greetingRequest) returns (greetingResponse) {}
     rpc Sum(sumRequest) returns (sumResponse) {}
     rpc GreetManyTimes(greetingRequest) returns (stream greetingResponse) {}
     rpc PrimeCheck(primeDecompostionRequest) returns (stream primeDecompostionResponse) {}
+    rpc LongGreet(stream greetingRequest) returns (greetingResponse) {}
 
 }

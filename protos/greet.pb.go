@@ -8,15 +8,14 @@ package protos
 
 import (
 	context "context"
-	reflect "reflect"
-	sync "sync"
-
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	reflect "reflect"
+	sync "sync"
 )
 
 const (
@@ -356,7 +355,7 @@ var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
 	0x0a, 0x19, 0x70, 0x72, 0x69, 0x6d, 0x65, 0x44, 0x65, 0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74,
 	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x9e, 0x02, 0x0a, 0x0c, 0x67, 0x72, 0x65, 0x65,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0xe2, 0x02, 0x0a, 0x0c, 0x67, 0x72, 0x65, 0x65,
 	0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x05, 0x47, 0x72, 0x65, 0x65,
 	0x74, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74,
 	0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x6f,
@@ -374,9 +373,13 @@ var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
 	0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
 	0x74, 0x1a, 0x21, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x6d, 0x65,
 	0x44, 0x65, 0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x42, 0x16, 0x5a, 0x14, 0x67, 0x6f, 0x5f, 0x6c,
-	0x65, 0x61, 0x72, 0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x12, 0x42, 0x0a, 0x09, 0x4c, 0x6f, 0x6e, 0x67,
+	0x47, 0x72, 0x65, 0x65, 0x74, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67,
+	0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18,
+	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x42, 0x16, 0x5a, 0x14,
+	0x67, 0x6f, 0x5f, 0x6c, 0x65, 0x61, 0x72, 0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -405,12 +408,14 @@ var file_go_learn_test_protos_greet_proto_depIdxs = []int32{
 	2, // 1: protos.greetService.Sum:input_type -> protos.sumRequest
 	0, // 2: protos.greetService.GreetManyTimes:input_type -> protos.greetingRequest
 	4, // 3: protos.greetService.PrimeCheck:input_type -> protos.primeDecompostionRequest
-	1, // 4: protos.greetService.Greet:output_type -> protos.greetingResponse
-	3, // 5: protos.greetService.Sum:output_type -> protos.sumResponse
-	1, // 6: protos.greetService.GreetManyTimes:output_type -> protos.greetingResponse
-	5, // 7: protos.greetService.PrimeCheck:output_type -> protos.primeDecompostionResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
+	0, // 4: protos.greetService.LongGreet:input_type -> protos.greetingRequest
+	1, // 5: protos.greetService.Greet:output_type -> protos.greetingResponse
+	3, // 6: protos.greetService.Sum:output_type -> protos.sumResponse
+	1, // 7: protos.greetService.GreetManyTimes:output_type -> protos.greetingResponse
+	5, // 8: protos.greetService.PrimeCheck:output_type -> protos.primeDecompostionResponse
+	1, // 9: protos.greetService.LongGreet:output_type -> protos.greetingResponse
+	5, // [5:10] is the sub-list for method output_type
+	0, // [0:5] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -531,6 +536,7 @@ type GreetServiceClient interface {
 	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
 	GreetManyTimes(ctx context.Context, in *GreetingRequest, opts ...grpc.CallOption) (GreetService_GreetManyTimesClient, error)
 	PrimeCheck(ctx context.Context, in *PrimeDecompostionRequest, opts ...grpc.CallOption) (GreetService_PrimeCheckClient, error)
+	LongGreet(ctx context.Context, opts ...grpc.CallOption) (GreetService_LongGreetClient, error)
 }
 
 type greetServiceClient struct {
@@ -623,12 +629,47 @@ func (x *greetServicePrimeCheckClient) Recv() (*PrimeDecompostionResponse, error
 	return m, nil
 }
 
+func (c *greetServiceClient) LongGreet(ctx context.Context, opts ...grpc.CallOption) (GreetService_LongGreetClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_GreetService_serviceDesc.Streams[2], "/protos.greetService/LongGreet", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &greetServiceLongGreetClient{stream}
+	return x, nil
+}
+
+type GreetService_LongGreetClient interface {
+	Send(*GreetingRequest) error
+	CloseAndRecv() (*GreetingResponse, error)
+	grpc.ClientStream
+}
+
+type greetServiceLongGreetClient struct {
+	grpc.ClientStream
+}
+
+func (x *greetServiceLongGreetClient) Send(m *GreetingRequest) error {
+	return x.ClientStream.SendMsg(m)
+}
+
+func (x *greetServiceLongGreetClient) CloseAndRecv() (*GreetingResponse, error) {
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	m := new(GreetingResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // GreetServiceServer is the server API for GreetService service.
 type GreetServiceServer interface {
 	Greet(context.Context, *GreetingRequest) (*GreetingResponse, error)
 	Sum(context.Context, *SumRequest) (*SumResponse, error)
 	GreetManyTimes(*GreetingRequest, GreetService_GreetManyTimesServer) error
 	PrimeCheck(*PrimeDecompostionRequest, GreetService_PrimeCheckServer) error
+	LongGreet(GreetService_LongGreetServer) error
 }
 
 // UnimplementedGreetServiceServer can be embedded to have forward compatible implementations.
@@ -646,6 +687,9 @@ func (*UnimplementedGreetServiceServer) GreetManyTimes(*GreetingRequest, GreetSe
 }
 func (*UnimplementedGreetServiceServer) PrimeCheck(*PrimeDecompostionRequest, GreetService_PrimeCheckServer) error {
 	return status.Errorf(codes.Unimplemented, "method PrimeCheck not implemented")
+}
+func (*UnimplementedGreetServiceServer) LongGreet(GreetService_LongGreetServer) error {
+	return status.Errorf(codes.Unimplemented, "method LongGreet not implemented")
 }
 
 func RegisterGreetServiceServer(s *grpc.Server, srv GreetServiceServer) {
@@ -730,6 +774,32 @@ func (x *greetServicePrimeCheckServer) Send(m *PrimeDecompostionResponse) error 
 	return x.ServerStream.SendMsg(m)
 }
 
+func _GreetService_LongGreet_Handler(srv interface{}, stream grpc.ServerStream) error {
+	return srv.(GreetServiceServer).LongGreet(&greetServiceLongGreetServer{stream})
+}
+
+type GreetService_LongGreetServer interface {
+	SendAndClose(*GreetingResponse) error
+	Recv() (*GreetingRequest, error)
+	grpc.ServerStream
+}
+
+type greetServiceLongGreetServer struct {
+	grpc.ServerStream
+}
+
+func (x *greetServiceLongGreetServer) SendAndClose(m *GreetingResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func (x *greetServiceLongGreetServer) Recv() (*GreetingRequest, error) {
+	m := new(GreetingRequest)
+	if err := x.ServerStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 var _GreetService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "protos.greetService",
 	HandlerType: (*GreetServiceServer)(nil),
@@ -753,6 +823,11 @@ var _GreetService_serviceDesc = grpc.ServiceDesc{
 			StreamName:    "PrimeCheck",
 			Handler:       _GreetService_PrimeCheck_Handler,
 			ServerStreams: true,
+		},
+		{
+			StreamName:    "LongGreet",
+			Handler:       _GreetService_LongGreet_Handler,
+			ClientStreams: true,
 		},
 	},
 	Metadata: "go_learn_test/protos/greet.proto",
