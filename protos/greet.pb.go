@@ -8,14 +8,15 @@ package protos
 
 import (
 	context "context"
+	reflect "reflect"
+	sync "sync"
+
 	proto "github.com/golang/protobuf/proto"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
-	reflect "reflect"
-	sync "sync"
 )
 
 const (
@@ -131,6 +132,202 @@ func (x *GreetingResponse) GetResponse() string {
 	return ""
 }
 
+type SumRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	FirstNumber  int32 `protobuf:"varint,1,opt,name=first_number,json=firstNumber,proto3" json:"first_number,omitempty"`
+	SecondNumber int32 `protobuf:"varint,2,opt,name=second_number,json=secondNumber,proto3" json:"second_number,omitempty"`
+}
+
+func (x *SumRequest) Reset() {
+	*x = SumRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_go_learn_test_protos_greet_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SumRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SumRequest) ProtoMessage() {}
+
+func (x *SumRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_go_learn_test_protos_greet_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SumRequest.ProtoReflect.Descriptor instead.
+func (*SumRequest) Descriptor() ([]byte, []int) {
+	return file_go_learn_test_protos_greet_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *SumRequest) GetFirstNumber() int32 {
+	if x != nil {
+		return x.FirstNumber
+	}
+	return 0
+}
+
+func (x *SumRequest) GetSecondNumber() int32 {
+	if x != nil {
+		return x.SecondNumber
+	}
+	return 0
+}
+
+type SumResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Response int32 `protobuf:"varint,1,opt,name=Response,proto3" json:"Response,omitempty"`
+}
+
+func (x *SumResponse) Reset() {
+	*x = SumResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_go_learn_test_protos_greet_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SumResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SumResponse) ProtoMessage() {}
+
+func (x *SumResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_go_learn_test_protos_greet_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SumResponse.ProtoReflect.Descriptor instead.
+func (*SumResponse) Descriptor() ([]byte, []int) {
+	return file_go_learn_test_protos_greet_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *SumResponse) GetResponse() int32 {
+	if x != nil {
+		return x.Response
+	}
+	return 0
+}
+
+type PrimeDecompostionRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Number int32 `protobuf:"varint,1,opt,name=Number,proto3" json:"Number,omitempty"`
+}
+
+func (x *PrimeDecompostionRequest) Reset() {
+	*x = PrimeDecompostionRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_go_learn_test_protos_greet_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeDecompostionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeDecompostionRequest) ProtoMessage() {}
+
+func (x *PrimeDecompostionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_go_learn_test_protos_greet_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeDecompostionRequest.ProtoReflect.Descriptor instead.
+func (*PrimeDecompostionRequest) Descriptor() ([]byte, []int) {
+	return file_go_learn_test_protos_greet_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *PrimeDecompostionRequest) GetNumber() int32 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
+}
+
+type PrimeDecompostionResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Response int32 `protobuf:"varint,1,opt,name=Response,proto3" json:"Response,omitempty"`
+}
+
+func (x *PrimeDecompostionResponse) Reset() {
+	*x = PrimeDecompostionResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_go_learn_test_protos_greet_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *PrimeDecompostionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PrimeDecompostionResponse) ProtoMessage() {}
+
+func (x *PrimeDecompostionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_go_learn_test_protos_greet_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PrimeDecompostionResponse.ProtoReflect.Descriptor instead.
+func (*PrimeDecompostionResponse) Descriptor() ([]byte, []int) {
+	return file_go_learn_test_protos_greet_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *PrimeDecompostionResponse) GetResponse() int32 {
+	if x != nil {
+		return x.Response
+	}
+	return 0
+}
+
 var File_go_learn_test_protos_greet_proto protoreflect.FileDescriptor
 
 var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
@@ -144,14 +341,42 @@ var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
 	0x08, 0x6c, 0x61, 0x73, 0x74, 0x4e, 0x61, 0x6d, 0x65, 0x22, 0x2e, 0x0a, 0x10, 0x67, 0x72, 0x65,
 	0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a, 0x0a,
 	0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x4c, 0x0a, 0x0c, 0x67, 0x72, 0x65,
-	0x65, 0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x05, 0x47, 0x72, 0x65,
-	0x65, 0x74, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65,
-	0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x16, 0x5a, 0x14, 0x67, 0x6f, 0x5f, 0x6c, 0x65,
-	0x61, 0x72, 0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x54, 0x0a, 0x0a, 0x73, 0x75, 0x6d,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x21, 0x0a, 0x0c, 0x66, 0x69, 0x72, 0x73, 0x74,
+	0x5f, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x0b, 0x66,
+	0x69, 0x72, 0x73, 0x74, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x23, 0x0a, 0x0d, 0x73, 0x65,
+	0x63, 0x6f, 0x6e, 0x64, 0x5f, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x05, 0x52, 0x0c, 0x73, 0x65, 0x63, 0x6f, 0x6e, 0x64, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22,
+	0x29, 0x0a, 0x0b, 0x73, 0x75, 0x6d, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a,
+	0x0a, 0x08, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x52, 0x08, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x32, 0x0a, 0x18, 0x70, 0x72,
+	0x69, 0x6d, 0x65, 0x44, 0x65, 0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x06, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x22, 0x37,
+	0x0a, 0x19, 0x70, 0x72, 0x69, 0x6d, 0x65, 0x44, 0x65, 0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74,
+	0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x9e, 0x02, 0x0a, 0x0c, 0x67, 0x72, 0x65, 0x65,
+	0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x05, 0x47, 0x72, 0x65, 0x65,
+	0x74, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74,
+	0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x30, 0x0a, 0x03, 0x53, 0x75, 0x6d, 0x12, 0x12, 0x2e,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x73, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x13, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x73, 0x75, 0x6d, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x47, 0x0a, 0x0e, 0x47, 0x72, 0x65, 0x65,
+	0x74, 0x4d, 0x61, 0x6e, 0x79, 0x54, 0x69, 0x6d, 0x65, 0x73, 0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65,
+	0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30,
+	0x01, 0x12, 0x55, 0x0a, 0x0a, 0x50, 0x72, 0x69, 0x6d, 0x65, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x12,
+	0x20, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x6d, 0x65, 0x44, 0x65,
+	0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x21, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x70, 0x72, 0x69, 0x6d, 0x65,
+	0x44, 0x65, 0x63, 0x6f, 0x6d, 0x70, 0x6f, 0x73, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x30, 0x01, 0x42, 0x16, 0x5a, 0x14, 0x67, 0x6f, 0x5f, 0x6c,
+	0x65, 0x61, 0x72, 0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -166,16 +391,26 @@ func file_go_learn_test_protos_greet_proto_rawDescGZIP() []byte {
 	return file_go_learn_test_protos_greet_proto_rawDescData
 }
 
-var file_go_learn_test_protos_greet_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_go_learn_test_protos_greet_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_go_learn_test_protos_greet_proto_goTypes = []interface{}{
-	(*GreetingRequest)(nil),  // 0: protos.greetingRequest
-	(*GreetingResponse)(nil), // 1: protos.greetingResponse
+	(*GreetingRequest)(nil),           // 0: protos.greetingRequest
+	(*GreetingResponse)(nil),          // 1: protos.greetingResponse
+	(*SumRequest)(nil),                // 2: protos.sumRequest
+	(*SumResponse)(nil),               // 3: protos.sumResponse
+	(*PrimeDecompostionRequest)(nil),  // 4: protos.primeDecompostionRequest
+	(*PrimeDecompostionResponse)(nil), // 5: protos.primeDecompostionResponse
 }
 var file_go_learn_test_protos_greet_proto_depIdxs = []int32{
 	0, // 0: protos.greetService.Greet:input_type -> protos.greetingRequest
-	1, // 1: protos.greetService.Greet:output_type -> protos.greetingResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	2, // 1: protos.greetService.Sum:input_type -> protos.sumRequest
+	0, // 2: protos.greetService.GreetManyTimes:input_type -> protos.greetingRequest
+	4, // 3: protos.greetService.PrimeCheck:input_type -> protos.primeDecompostionRequest
+	1, // 4: protos.greetService.Greet:output_type -> protos.greetingResponse
+	3, // 5: protos.greetService.Sum:output_type -> protos.sumResponse
+	1, // 6: protos.greetService.GreetManyTimes:output_type -> protos.greetingResponse
+	5, // 7: protos.greetService.PrimeCheck:output_type -> protos.primeDecompostionResponse
+	4, // [4:8] is the sub-list for method output_type
+	0, // [0:4] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -211,6 +446,54 @@ func file_go_learn_test_protos_greet_proto_init() {
 				return nil
 			}
 		}
+		file_go_learn_test_protos_greet_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SumRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_go_learn_test_protos_greet_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SumResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_go_learn_test_protos_greet_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeDecompostionRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_go_learn_test_protos_greet_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*PrimeDecompostionResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -218,7 +501,7 @@ func file_go_learn_test_protos_greet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_go_learn_test_protos_greet_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -245,6 +528,9 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type GreetServiceClient interface {
 	Greet(ctx context.Context, in *GreetingRequest, opts ...grpc.CallOption) (*GreetingResponse, error)
+	Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error)
+	GreetManyTimes(ctx context.Context, in *GreetingRequest, opts ...grpc.CallOption) (GreetService_GreetManyTimesClient, error)
+	PrimeCheck(ctx context.Context, in *PrimeDecompostionRequest, opts ...grpc.CallOption) (GreetService_PrimeCheckClient, error)
 }
 
 type greetServiceClient struct {
@@ -264,9 +550,85 @@ func (c *greetServiceClient) Greet(ctx context.Context, in *GreetingRequest, opt
 	return out, nil
 }
 
+func (c *greetServiceClient) Sum(ctx context.Context, in *SumRequest, opts ...grpc.CallOption) (*SumResponse, error) {
+	out := new(SumResponse)
+	err := c.cc.Invoke(ctx, "/protos.greetService/Sum", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *greetServiceClient) GreetManyTimes(ctx context.Context, in *GreetingRequest, opts ...grpc.CallOption) (GreetService_GreetManyTimesClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_GreetService_serviceDesc.Streams[0], "/protos.greetService/GreetManyTimes", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &greetServiceGreetManyTimesClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type GreetService_GreetManyTimesClient interface {
+	Recv() (*GreetingResponse, error)
+	grpc.ClientStream
+}
+
+type greetServiceGreetManyTimesClient struct {
+	grpc.ClientStream
+}
+
+func (x *greetServiceGreetManyTimesClient) Recv() (*GreetingResponse, error) {
+	m := new(GreetingResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
+func (c *greetServiceClient) PrimeCheck(ctx context.Context, in *PrimeDecompostionRequest, opts ...grpc.CallOption) (GreetService_PrimeCheckClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_GreetService_serviceDesc.Streams[1], "/protos.greetService/PrimeCheck", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &greetServicePrimeCheckClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type GreetService_PrimeCheckClient interface {
+	Recv() (*PrimeDecompostionResponse, error)
+	grpc.ClientStream
+}
+
+type greetServicePrimeCheckClient struct {
+	grpc.ClientStream
+}
+
+func (x *greetServicePrimeCheckClient) Recv() (*PrimeDecompostionResponse, error) {
+	m := new(PrimeDecompostionResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // GreetServiceServer is the server API for GreetService service.
 type GreetServiceServer interface {
 	Greet(context.Context, *GreetingRequest) (*GreetingResponse, error)
+	Sum(context.Context, *SumRequest) (*SumResponse, error)
+	GreetManyTimes(*GreetingRequest, GreetService_GreetManyTimesServer) error
+	PrimeCheck(*PrimeDecompostionRequest, GreetService_PrimeCheckServer) error
 }
 
 // UnimplementedGreetServiceServer can be embedded to have forward compatible implementations.
@@ -275,6 +637,15 @@ type UnimplementedGreetServiceServer struct {
 
 func (*UnimplementedGreetServiceServer) Greet(context.Context, *GreetingRequest) (*GreetingResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Greet not implemented")
+}
+func (*UnimplementedGreetServiceServer) Sum(context.Context, *SumRequest) (*SumResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Sum not implemented")
+}
+func (*UnimplementedGreetServiceServer) GreetManyTimes(*GreetingRequest, GreetService_GreetManyTimesServer) error {
+	return status.Errorf(codes.Unimplemented, "method GreetManyTimes not implemented")
+}
+func (*UnimplementedGreetServiceServer) PrimeCheck(*PrimeDecompostionRequest, GreetService_PrimeCheckServer) error {
+	return status.Errorf(codes.Unimplemented, "method PrimeCheck not implemented")
 }
 
 func RegisterGreetServiceServer(s *grpc.Server, srv GreetServiceServer) {
@@ -299,6 +670,66 @@ func _GreetService_Greet_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _GreetService_Sum_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SumRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GreetServiceServer).Sum(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.greetService/Sum",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GreetServiceServer).Sum(ctx, req.(*SumRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _GreetService_GreetManyTimes_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(GreetingRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(GreetServiceServer).GreetManyTimes(m, &greetServiceGreetManyTimesServer{stream})
+}
+
+type GreetService_GreetManyTimesServer interface {
+	Send(*GreetingResponse) error
+	grpc.ServerStream
+}
+
+type greetServiceGreetManyTimesServer struct {
+	grpc.ServerStream
+}
+
+func (x *greetServiceGreetManyTimesServer) Send(m *GreetingResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
+func _GreetService_PrimeCheck_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(PrimeDecompostionRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(GreetServiceServer).PrimeCheck(m, &greetServicePrimeCheckServer{stream})
+}
+
+type GreetService_PrimeCheckServer interface {
+	Send(*PrimeDecompostionResponse) error
+	grpc.ServerStream
+}
+
+type greetServicePrimeCheckServer struct {
+	grpc.ServerStream
+}
+
+func (x *greetServicePrimeCheckServer) Send(m *PrimeDecompostionResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _GreetService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "protos.greetService",
 	HandlerType: (*GreetServiceServer)(nil),
@@ -307,7 +738,22 @@ var _GreetService_serviceDesc = grpc.ServiceDesc{
 			MethodName: "Greet",
 			Handler:    _GreetService_Greet_Handler,
 		},
+		{
+			MethodName: "Sum",
+			Handler:    _GreetService_Sum_Handler,
+		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "GreetManyTimes",
+			Handler:       _GreetService_GreetManyTimes_Handler,
+			ServerStreams: true,
+		},
+		{
+			StreamName:    "PrimeCheck",
+			Handler:       _GreetService_PrimeCheck_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "go_learn_test/protos/greet.proto",
 }

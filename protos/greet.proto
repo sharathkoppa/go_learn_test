@@ -12,6 +12,27 @@ message greetingResponse{
     string response = 1;
 }
 
+message sumRequest {
+    int32 first_number = 1;
+    int32 second_number = 2;
+}
+
+message sumResponse {
+    int32 Response = 1;
+}
+
+message primeDecompostionRequest {
+    int32 Number = 1;
+}
+
+message primeDecompostionResponse {
+    int32 Response = 1;
+}
+
 service greetService{
     rpc Greet(greetingRequest) returns (greetingResponse) {}
+    rpc Sum(sumRequest) returns (sumResponse) {}
+    rpc GreetManyTimes(greetingRequest) returns (stream greetingResponse) {}
+    rpc PrimeCheck(primeDecompostionRequest) returns (stream primeDecompostionResponse) {}
+
 }
