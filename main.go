@@ -3,6 +3,8 @@ package main
 import (
 	"context"
 	"fmt"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"io"
 	"net"
 	"os"
@@ -46,6 +48,10 @@ func (s *server) PrimeCheck(req *protos.PrimeDecompostionRequest, stream protos.
 	fmt.Println("stream prime server")
 	number := req.Number
 	k := int32(2)
+	if number < 0 {
+		err := status.Error(codes.InvalidArgument, "Not valid for negative numbers")
+		return err
+	}
 	for number > 1 {
 		fmt.Println(number)
 		if (number % k) == 0 {

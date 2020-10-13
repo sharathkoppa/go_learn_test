@@ -4,6 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	"io"
 	"time"
 
@@ -83,7 +85,7 @@ func GreetStreamServer(c protos.GreetServiceClient) {
 
 func PrimeDecomposition(c protos.GreetServiceClient) {
 	fmt.Println("In stream server prime")
-	req := protos.PrimeDecompostionRequest{Number: 120}
+	req := protos.PrimeDecompostionRequest{Number: -120}
 	ctx := context.Background()
 	respStream, err := c.PrimeCheck(ctx, &req)
 	if err != nil {
@@ -95,7 +97,17 @@ func PrimeDecomposition(c protos.GreetServiceClient) {
 			fmt.Println("end of stream prime", err)
 			break
 		} else if err != nil {
-			fmt.Println("error in stream response prime", err)
+			respErr, ok := status.FromError(err)
+			if ok {
+				if respErr.Code() == codes.InvalidArgument {
+					fmt.Println("invalid argument", respErr.Message())
+				} else {
+					fmt.Println("error in stream response prime", respErr.Message())
+				}
+			} else {
+				fmt.Println("error in stream response prime not ok", respErr.Message())
+			}
+			break
 		}
 		respJson, _ := json.Marshal(resp)
 		fmt.Println(string(respJson))
