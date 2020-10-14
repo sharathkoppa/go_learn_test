@@ -45,5 +45,6 @@ service greetService{
     rpc LongGreet(stream greetingRequest) returns (greetingResponse) {}
     rpc GreetEveryOne(stream greetingRequest) returns (stream greetingResponse) {}
     rpc MaxNumber(stream maxNumberRequest) returns (stream maxNumberResponse) {}
+    rpc GreetWithDeadLine(greetingRequest) returns (greetingResponse) {}
 
 }

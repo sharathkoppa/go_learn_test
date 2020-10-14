@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/status"
 	"io"
 	"time"
@@ -15,13 +16,25 @@ import (
 
 func main() {
 	fmt.Println("i am in client")
-	cc, err := grpc.Dial("0.0.0.0:1234", grpc.WithInsecure())
+
+	// certficate to send in client call and server verifies the certificate.
+	certFile := "../ssl/ca.crt"
+	creds, certErr := credentials.NewClientTLSFromFile(certFile, "")
+	fmt.Println(creds.Info())
+	if certErr != nil {
+		fmt.Println("certificate error in client", certErr)
+	}
+	credsToPass := grpc.WithTransportCredentials(creds)
+
+	cc, err := grpc.Dial("0.0.0.0:1234", credsToPass)
 	if err != nil {
 		fmt.Println("error while connecting to port", err)
 	}
 	defer cc.Close()
 	c := protos.NewGreetServiceClient(cc)
 	fmt.Println("connection successful", c)
+
+
 	GreetUnary(c)
 	ArithmeticUnary(c)
 	GreetStreamServer(c)
@@ -29,6 +42,8 @@ func main() {
 	LongGreetClientStream(c)
 	GreetBiDiStream(c)
 	GetMaxNumber(c)
+	GreetDeadLine(c, 5 *time.Second)
+	GreetDeadLine(c, 1 *time.Second)
 
 }
 
@@ -209,3 +224,32 @@ func GetMaxNumber(c protos.GreetServiceClient) {
 	}
 
 }
+
+func GreetDeadLine(c protos.GreetServiceClient, n time.Duration) {
+	fmt.Println("In unary deadline")
+	req := protos.GreetingRequest{FirstName: "sharath", LastName: "koppa"}
+
+	// Client sets the duration within server has to send the response.
+	// else client terminate the call.
+	ctx, cancel := context.WithTimeout(context.Background(), n)
+	defer cancel()
+
+	resp, err := c.GreetWithDeadLine(ctx, &req)
+
+	if err != nil {
+		respErr, ok := status.FromError(err)
+		if ok {
+			if respErr.Code() == codes.DeadlineExceeded {
+				fmt.Println("dead line occured ", err)
+			} else {
+				fmt.Println("some other error", err)
+			}
+		}
+		fmt.Println("grpc response error ", err)
+		return
+	}
+
+	respJson, _ := json.Marshal(resp)
+	fmt.Println(string(respJson))
+}
+

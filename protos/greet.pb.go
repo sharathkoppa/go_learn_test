@@ -455,7 +455,7 @@ var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
 	0x62, 0x65, 0x72, 0x22, 0x2f, 0x0a, 0x11, 0x6d, 0x61, 0x78, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72,
 	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x52, 0x65, 0x73, 0x70,
 	0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x32, 0xf4, 0x03, 0x0a, 0x0c, 0x67, 0x72, 0x65, 0x65, 0x74, 0x53, 0x65,
+	0x6f, 0x6e, 0x73, 0x65, 0x32, 0xbe, 0x04, 0x0a, 0x0c, 0x67, 0x72, 0x65, 0x65, 0x74, 0x53, 0x65,
 	0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x3c, 0x0a, 0x05, 0x47, 0x72, 0x65, 0x65, 0x74, 0x12, 0x17,
 	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73,
@@ -486,9 +486,14 @@ var file_go_learn_test_protos_greet_proto_rawDesc = []byte{
 	0x12, 0x18, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x6d, 0x61, 0x78, 0x4e, 0x75, 0x6d,
 	0x62, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x70, 0x72, 0x6f,
 	0x74, 0x6f, 0x73, 0x2e, 0x6d, 0x61, 0x78, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x30, 0x01, 0x42, 0x16, 0x5a, 0x14, 0x67,
-	0x6f, 0x5f, 0x6c, 0x65, 0x61, 0x72, 0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x28, 0x01, 0x30, 0x01, 0x12, 0x48, 0x0a, 0x11, 0x47,
+	0x72, 0x65, 0x65, 0x74, 0x57, 0x69, 0x74, 0x68, 0x44, 0x65, 0x61, 0x64, 0x4c, 0x69, 0x6e, 0x65,
+	0x12, 0x17, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69,
+	0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x73, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x16, 0x5a, 0x14, 0x67, 0x6f, 0x5f, 0x6c, 0x65, 0x61, 0x72,
+	0x6e, 0x5f, 0x74, 0x65, 0x73, 0x74, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x62, 0x06, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -522,15 +527,17 @@ var file_go_learn_test_protos_greet_proto_depIdxs = []int32{
 	0, // 4: protos.greetService.LongGreet:input_type -> protos.greetingRequest
 	0, // 5: protos.greetService.GreetEveryOne:input_type -> protos.greetingRequest
 	6, // 6: protos.greetService.MaxNumber:input_type -> protos.maxNumberRequest
-	1, // 7: protos.greetService.Greet:output_type -> protos.greetingResponse
-	3, // 8: protos.greetService.Sum:output_type -> protos.sumResponse
-	1, // 9: protos.greetService.GreetManyTimes:output_type -> protos.greetingResponse
-	5, // 10: protos.greetService.PrimeCheck:output_type -> protos.primeDecompostionResponse
-	1, // 11: protos.greetService.LongGreet:output_type -> protos.greetingResponse
-	1, // 12: protos.greetService.GreetEveryOne:output_type -> protos.greetingResponse
-	7, // 13: protos.greetService.MaxNumber:output_type -> protos.maxNumberResponse
-	7, // [7:14] is the sub-list for method output_type
-	0, // [0:7] is the sub-list for method input_type
+	0, // 7: protos.greetService.GreetWithDeadLine:input_type -> protos.greetingRequest
+	1, // 8: protos.greetService.Greet:output_type -> protos.greetingResponse
+	3, // 9: protos.greetService.Sum:output_type -> protos.sumResponse
+	1, // 10: protos.greetService.GreetManyTimes:output_type -> protos.greetingResponse
+	5, // 11: protos.greetService.PrimeCheck:output_type -> protos.primeDecompostionResponse
+	1, // 12: protos.greetService.LongGreet:output_type -> protos.greetingResponse
+	1, // 13: protos.greetService.GreetEveryOne:output_type -> protos.greetingResponse
+	7, // 14: protos.greetService.MaxNumber:output_type -> protos.maxNumberResponse
+	1, // 15: protos.greetService.GreetWithDeadLine:output_type -> protos.greetingResponse
+	8, // [8:16] is the sub-list for method output_type
+	0, // [0:8] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -678,6 +685,7 @@ type GreetServiceClient interface {
 	LongGreet(ctx context.Context, opts ...grpc.CallOption) (GreetService_LongGreetClient, error)
 	GreetEveryOne(ctx context.Context, opts ...grpc.CallOption) (GreetService_GreetEveryOneClient, error)
 	MaxNumber(ctx context.Context, opts ...grpc.CallOption) (GreetService_MaxNumberClient, error)
+	GreetWithDeadLine(ctx context.Context, in *GreetingRequest, opts ...grpc.CallOption) (*GreetingResponse, error)
 }
 
 type greetServiceClient struct {
@@ -866,6 +874,15 @@ func (x *greetServiceMaxNumberClient) Recv() (*MaxNumberResponse, error) {
 	return m, nil
 }
 
+func (c *greetServiceClient) GreetWithDeadLine(ctx context.Context, in *GreetingRequest, opts ...grpc.CallOption) (*GreetingResponse, error) {
+	out := new(GreetingResponse)
+	err := c.cc.Invoke(ctx, "/protos.greetService/GreetWithDeadLine", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // GreetServiceServer is the server API for GreetService service.
 type GreetServiceServer interface {
 	Greet(context.Context, *GreetingRequest) (*GreetingResponse, error)
@@ -875,6 +892,7 @@ type GreetServiceServer interface {
 	LongGreet(GreetService_LongGreetServer) error
 	GreetEveryOne(GreetService_GreetEveryOneServer) error
 	MaxNumber(GreetService_MaxNumberServer) error
+	GreetWithDeadLine(context.Context, *GreetingRequest) (*GreetingResponse, error)
 }
 
 // UnimplementedGreetServiceServer can be embedded to have forward compatible implementations.
@@ -901,6 +919,9 @@ func (*UnimplementedGreetServiceServer) GreetEveryOne(GreetService_GreetEveryOne
 }
 func (*UnimplementedGreetServiceServer) MaxNumber(GreetService_MaxNumberServer) error {
 	return status.Errorf(codes.Unimplemented, "method MaxNumber not implemented")
+}
+func (*UnimplementedGreetServiceServer) GreetWithDeadLine(context.Context, *GreetingRequest) (*GreetingResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GreetWithDeadLine not implemented")
 }
 
 func RegisterGreetServiceServer(s *grpc.Server, srv GreetServiceServer) {
@@ -1063,6 +1084,24 @@ func (x *greetServiceMaxNumberServer) Recv() (*MaxNumberRequest, error) {
 	return m, nil
 }
 
+func _GreetService_GreetWithDeadLine_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GreetingRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(GreetServiceServer).GreetWithDeadLine(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/protos.greetService/GreetWithDeadLine",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(GreetServiceServer).GreetWithDeadLine(ctx, req.(*GreetingRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _GreetService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "protos.greetService",
 	HandlerType: (*GreetServiceServer)(nil),
@@ -1074,6 +1113,10 @@ var _GreetService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Sum",
 			Handler:    _GreetService_Sum_Handler,
+		},
+		{
+			MethodName: "GreetWithDeadLine",
+			Handler:    _GreetService_GreetWithDeadLine_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

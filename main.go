@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/status"
 	"io"
 	"net"
@@ -50,6 +51,7 @@ func (s *server) PrimeCheck(req *protos.PrimeDecompostionRequest, stream protos.
 	k := int32(2)
 	if number < 0 {
 		err := status.Error(codes.InvalidArgument, "Not valid for negative numbers")
+		fmt.Println("---------------------", err.Error())
 		return err
 	}
 	for number > 1 {
@@ -126,6 +128,26 @@ func (s *server) MaxNumber(stream protos.GreetService_MaxNumberServer) error {
 	}
 }
 
+func (s *server) GreetWithDeadLine(ctx context.Context, req *protos.GreetingRequest) (*protos.GreetingResponse, error) {
+	fmt.Println("unary greet server")
+
+	// client set the deadline time and server exits after that.
+	// here server takes to response more than 3 seconds and if client sets lower time
+	// deadline exceeded error will be returned.
+	for i := 0; i < 3; i++ {
+		if ctx.Err() == context.Canceled {
+			return nil, status.Error(codes.DeadlineExceeded, "stopped by client")
+		}
+		time.Sleep(1 * time.Second)
+	}
+
+	firstName := req.FirstName
+	lastName := req.LastName
+	responseStr := "Hello " + firstName + " " + lastName
+	resp := &protos.GreetingResponse{Response: responseStr}
+	return resp, nil
+}
+
 func main() {
 	lsi, err := net.Listen("tcp", "0.0.0.0:1234")
 	if err != nil {
@@ -133,7 +155,17 @@ func main() {
 		os.Exit(1)
 	}
 
-	serv := grpc.NewServer()
+	// server key and server certificate for ssl authentication
+	// set in server startup.
+	certFile := "ssl/server.crt"
+	keyFile := "ssl/server.pem"
+	transportCreds, sslErr := credentials.NewServerTLSFromFile(certFile, keyFile)
+	for sslErr != nil {
+		fmt.Println("ssl error in server", sslErr)
+	}
+	creds := grpc.Creds(transportCreds)
+
+	serv := grpc.NewServer(creds)
 	protos.RegisterGreetServiceServer(serv, &server{})
 	err = serv.Serve(lsi)
 	if err != nil {
